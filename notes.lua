@@ -51,16 +51,28 @@ return function(button_list, stepstype)
 	}
 	local hold_state_map= {
 		parts_per_beat= parts_per_beat, quanta= {
-			{per_beat= 1, states= {1,2}}, -- 4th
-			{per_beat= 2, states= {3,4}}, -- 8th
-			{per_beat= 3, states= {5,6}}, -- 12th
-			{per_beat= 4, states= {7,8}}, -- 16th
-			{per_beat= 6, states= {9,10}}, -- 24th
-			{per_beat= 8, states= {11,12}}, -- 32nd
-			{per_beat= 12, states= {13,14}}, -- 48th
-			{per_beat= 16, states= {15,16}}, -- 64th
+			{per_beat= 1, states= {2}}, -- 4th
+			{per_beat= 2, states= {4}}, -- 8th
+			{per_beat= 3, states= {6}}, -- 12th
+			{per_beat= 4, states= {8}}, -- 16th
+			{per_beat= 6, states= {10}}, -- 24th
+			{per_beat= 8, states= {12}}, -- 32nd
+			{per_beat= 12, states= {14}}, -- 48th
+			{per_beat= 16, states= {16}}, -- 64th
 		}
 	}
+	local activehold_state_map= {
+		parts_per_beat= parts_per_beat, quanta= {
+			{per_beat= 1, states= {1}}, -- 4th
+			{per_beat= 2, states= {3}}, -- 8th
+			{per_beat= 3, states= {5}}, -- 12th
+			{per_beat= 4, states= {7}}, -- 16th
+			{per_beat= 6, states= {9}}, -- 24th
+			{per_beat= 8, states= {11}}, -- 32nd
+			{per_beat= 12, states= {13}}, -- 48th
+			{per_beat= 16, states= {15}}, -- 64th
+		}
+	}	
 	local lift_state_map= {
 		parts_per_beat= parts_per_beat, quanta= {
 			{per_beat= 1, states= {2}}, -- 4th
@@ -95,7 +107,7 @@ return function(button_list, stepstype)
 	}
 	local columns= {}
 	for i, button in ipairs(button_list) do
-		local hold_tex= hold_redir[button].." hold 2x1.png"
+		local hold_tex= hold_redir[button].." hold 8x2 (doubleres).png"
 		local roll_tex= hold_redir[button].." roll 2x1.png"
 		columns[i]= {
 			width= tap_width[button],
@@ -124,7 +136,7 @@ return function(button_list, stepstype)
 						length_data= hold_length,
 					},
 					{
-						state_map= hold_state_map,
+						state_map= activehold_state_map,
 						textures= {hold_tex},
 						flip= hold_flips[button],
 						length_data= hold_length,
