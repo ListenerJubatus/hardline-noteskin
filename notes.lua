@@ -49,6 +49,18 @@ return function(button_list, stepstype)
 			{per_beat= 16, states= {29, 30, 31, 32}}, -- 64th
 		},
 	}
+	local hold_state_map= {
+		parts_per_beat= parts_per_beat, quanta= {
+			{per_beat= 1, states= {1,2}}, -- 4th
+			{per_beat= 2, states= {3,4}}, -- 8th
+			{per_beat= 3, states= {5,6}}, -- 12th
+			{per_beat= 4, states= {7,8}}, -- 16th
+			{per_beat= 6, states= {9,10}}, -- 24th
+			{per_beat= 8, states= {11,12}}, -- 32nd
+			{per_beat= 12, states= {13,14}}, -- 48th
+			{per_beat= 16, states= {15,16}}, -- 64th
+		}
+	}
 	local lift_state_map= {
 		parts_per_beat= parts_per_beat, quanta= {
 			{per_beat= 1, states= {2}}, -- 4th
@@ -106,13 +118,13 @@ return function(button_list, stepstype)
 			holds= {
 				TapNoteSubType_Hold= {
 					{
-						state_map= inactive_state_map,
+						state_map= hold_state_map,
 						textures= {hold_tex},
 						flip= hold_flips[button],
 						length_data= hold_length,
 					},
 					{
-						state_map= active_state_map,
+						state_map= hold_state_map,
 						textures= {hold_tex},
 						flip= hold_flips[button],
 						length_data= hold_length,
@@ -136,7 +148,7 @@ return function(button_list, stepstype)
 			reverse_holds= {
 				TapNoteSubType_Hold= {
 					{
-						state_map= inactive_state_map,
+						state_map= hold_state_map,
 						textures= {hold_tex},
 						flip= rev_hold_flips[button],
 						length_data= hold_length,
@@ -150,7 +162,7 @@ return function(button_list, stepstype)
 				},
 				TapNoteSubType_Roll= {
 					{
-						state_map= inactive_state_map,
+						state_map= hold_state_map,
 						textures= {roll_tex},
 						flip= rev_roll_flips[button],
 						length_data= hold_length,
