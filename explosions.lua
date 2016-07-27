@@ -25,11 +25,11 @@ return function(button_list, stepstype, skin_params)
 				end,
 				ColumnJudgmentCommand= function(self, param)
 					local diffuse= {
-						TapNoteScore_W1= {1, 1, 1, 1},
-						TapNoteScore_W2= {1, 1, .3, 1},
-						TapNoteScore_W3= {0, 1, .4, 1},
-						TapNoteScore_W4= {.3, .8, 1, 1},
-						TapNoteScore_W5= {.8, 0, .6, 1},
+						TapNoteScore_W1= JudgmentLineToColor("JudgmentLine_W1"),
+						TapNoteScore_W2= JudgmentLineToColor("JudgmentLine_W2"),
+						TapNoteScore_W3= JudgmentLineToColor("JudgmentLine_W3"),
+						TapNoteScore_W4= JudgmentLineToColor("JudgmentLine_W4"),
+						TapNoteScore_W5= JudgmentLineToColor("JudgmentLine_W5"),
 						HoldNoteScore_Held= {1, 1, 1, 1},
 					}
 					local exp_color= diffuse[param.tap_note_score or param.hold_note_score]
