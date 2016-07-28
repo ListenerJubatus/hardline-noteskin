@@ -15,7 +15,7 @@ return function(button_list, stepstype, skin_parameters)
 			Texture= tap_redir[button].." receptor (doubleres).png", InitCommand= function(self)
 			self:rotationz(rots[button] or 0):SetAllStateDelays(1)
 					:effectclock("beat"):diffuseramp()
-					:effectcolor1(0.81,0.81,0.81,0.5):effectcolor2(1,1,1,0.9)
+					:effectcolor1(0.81,0.81,0.81,0.5):effectcolor2(1,1,1,1.0)
 					:effectperiod(0.5):effecttiming(0.25,0.50,0,0.25):effectoffset(-0.25)
 			end,
 			WidthSetCommand = function(self, param)
