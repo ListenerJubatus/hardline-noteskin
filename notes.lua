@@ -39,7 +39,7 @@ return function(button_list, stepstype)
 	local parts_per_beat= 48
 	local tap_state_map= {
 		parts_per_beat= parts_per_beat, quanta= {
-			{per_beat= 1, states= {1, 2, 3 ,4}}, -- 4th
+			{per_beat= 1, states= {1, 2, 3, 4}}, -- 4th
 			{per_beat= 2, states= {5, 6, 7, 8}}, -- 8th
 			{per_beat= 3, states= {9, 10, 11, 12}}, -- 12th
 			{per_beat= 4, states= {13, 14, 15, 16}}, -- 16th
@@ -117,14 +117,14 @@ return function(button_list, stepstype)
 			taps= {
 				NewSkinTapPart_Tap= {
 					state_map= tap_state_map,
-					actor= Def.Sprite{Texture= tap_redir[button].." Tap Note 4x8.png",
+					actor= Def.Sprite{Texture= tap_redir[button].." Tap Note 4x8 (doubleres).png",
 						InitCommand= function(self) self:rotationz(rots[button]) end}},
 				NewSkinTapPart_Mine= {
 					state_map= mine_state_map,
 					actor= Def.Sprite{Texture= "mine.png"}},
 				NewSkinTapPart_Lift= { -- fuck lifts
 					state_map= lift_state_map,
-					actor= Def.Sprite{Texture= tap_redir[button].." Tap Note 4x8.png",
+					actor= Def.Sprite{Texture= tap_redir[button].." Tap Note 4x8 (doubleres).png",
 						InitCommand= function(self) self:rotationz(rots[button]) end}},
 			},
 			holds= {
