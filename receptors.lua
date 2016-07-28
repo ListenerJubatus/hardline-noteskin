@@ -18,6 +18,9 @@ return function(button_list, stepstype, skin_parameters)
 					:effectcolor1(0.81,0.81,0.81,0.5):effectcolor2(1,1,1,0.9)
 					:effectperiod(0.5):effecttiming(0.25,0.50,0,0.25):effectoffset(-0.25)
 			end,
+			WidthSetCommand = function(self, param)
+				param.column:set_layer_fade_type(self, "FieldLayerFadeType_Receptor")
+			end,
 			ColumnJudgmentCommand= function(self)
 				self.none = false
 			end,
