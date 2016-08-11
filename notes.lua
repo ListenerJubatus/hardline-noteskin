@@ -74,15 +74,9 @@ return function(button_list, stepstype)
 		}
 	}	
 	local lift_state_map= {
-		parts_per_beat= parts_per_beat, quanta= {
-			{per_beat= 1, states= {2}}, -- 4th
-			{per_beat= 2, states= {4}}, -- 8th
-			{per_beat= 3, states= {6}}, -- 12th
-			{per_beat= 4, states= {8}}, -- 16th
-			{per_beat= 6, states= {10}}, -- 24th
-			{per_beat= 8, states= {12}}, -- 32nd
-			{per_beat= 12, states= {14}}, -- 48th
-			{per_beat= 16, states= {16}}, -- 64th
+		parts_per_beat = 1,
+		quanta = {
+			{per_beat= 1, states= {1, 2, 3, 4}}, -- 4th
 		},
 	}
 	local hold_length= {
@@ -93,8 +87,12 @@ return function(button_list, stepstype)
 		tail_pixs= 32
 	}
 	-- Mines only have a single frame in the graphics.
-	local mine_state_map= {
-		parts_per_beat= 1, quanta= {{per_beat= 1, states= {1}}}}
+	local mine_state_map = {
+		parts_per_beat = 1,
+		quanta = {
+			{ per_beat = 1, states = { 1, 2, 3, 4, 5, 6, 7, 8 } }
+		}
+	}
 	local active_state_map= {
 		parts_per_beat= parts_per_beat, quanta= {
 			{per_beat= 1, states= {1}},
@@ -121,10 +119,10 @@ return function(button_list, stepstype)
 						InitCommand= function(self) self:rotationz(rots[button]) end}},
 				NewSkinTapPart_Mine= {
 					state_map= mine_state_map,
-					actor= Def.Sprite{Texture= "mine.png"}},
+					actor= Def.Sprite{Texture= "Mine 4x2.png"}},
 				NewSkinTapPart_Lift= { -- fuck lifts
 					state_map= lift_state_map,
-					actor= Def.Sprite{Texture= tap_redir[button].." Tap Note 4x8 (doubleres).png",
+					actor= Def.Sprite{Texture= tap_redir[button].." Lift Note 4x1 (doubleres).png",
 						InitCommand= function(self) self:rotationz(rots[button]) end}},
 			},
 			holds= {
