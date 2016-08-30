@@ -127,14 +127,14 @@ return function(button_list, stepstype)
 			anim_uses_beats= true,
 			padding= 0,
 			taps= {
-				NewSkinTapPart_Tap= {
+				NoteSkinTapPart_Tap= {
 					state_map= tap_state_map,
 					actor= Def.Sprite{Texture= tap_redir[button].." Tap Note 4x8 (doubleres).png",
 						InitCommand= function(self) self:rotationz(rots[button]) end}},
-				NewSkinTapPart_Mine= {
+				NoteSkinTapPart_Mine= {
 					state_map= mine_state_map,
 					actor= Def.Sprite{Texture= "Mine 4x2.png"}},
-				NewSkinTapPart_Lift= { -- fuck lifts
+				NoteSkinTapPart_Lift= { -- fuck lifts
 					state_map= lift_state_map,
 					actor= Def.Sprite{Texture= tap_redir[button].." Lift Note 4x1 (doubleres).png",
 						InitCommand= function(self) self:rotationz(rots[button]) end}},
